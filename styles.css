@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(26, 190, 177);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+nav ul li a {
+    border: 0.5rem solid rgb(11, 123, 175);
+    border-radius: 0.5rem;
+    background-color: rgb(11, 123, 175);
+    color: rgb(206, 235, 127);
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+ul li {
+    display: inline;
+    margin-right: 2rem;
+}
