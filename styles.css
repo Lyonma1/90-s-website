@@ -1,12 +1,12 @@
 body {
-    background-color: rgb(26, 190, 177);
+    background-color: rgb(25, 190, 180);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 nav ul li a {
-    border: 0.5rem solid rgb(11, 123, 175);
+    border: 0.5rem solid rgb(10, 125, 175);
     border-radius: 0.5rem;
-    background-color: rgb(11, 123, 175);
-    color: rgb(206, 235, 127);
+    background-color: rgb(10, 125, 175);
+    color: rgb(205, 235, 125);
     text-decoration: none;
 }
 ul {
@@ -15,4 +15,7 @@ ul {
 ul li {
     display: inline;
     margin-right: 2rem;
+}
+input {
+    background-color: rgb(170, 215, 210);
 }
