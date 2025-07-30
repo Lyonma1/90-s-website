@@ -2,7 +2,7 @@ body {
     background-color: rgb(25, 190, 180);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-nav ul li a {
+nav a {
     border: 0.5rem solid rgb(10, 125, 175);
     border-radius: 0.5rem;
     background-color: rgb(10, 125, 175);
