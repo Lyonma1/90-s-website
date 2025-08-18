@@ -15,6 +15,34 @@
     
     <script>
         // Your JavaScript code goes here
+        let pets = [
+            {name: "Garfield", type: "cat", age: 3, adopted: false},
+            {name: "Gary", type: "snail", age: 4, adopted: true},
+            {name: "Rex", type: "dog", age: 2, adopted: false},
+            {name: "Boris", type: "turtle", age: 6, adopted: false},
+        ];
+        function displayPet(pet) {
+            let cssClass = pet.adopted ? "pet adopted" : "pet available";
+            let html = `<div class="${cssClass}">Pet name is ${pet.name}, they are a ${pet.type}, they are ${pet.age} years old and it is ${pet.adopted} that they are adopted.</div>`;
+            return html;
+        }
+        function adoptPet(petName) {
+            pets.forEach((element) => {
+                if(element === petName){
+                    petName.adopted = true;
+                }
+            })
+            showAllPets();
+        }
+        function showAllPets() {
+            const element = document.querySelector("#pet-list");
+            for (let i = 0; i < pets.length; i++){
+                //element.insertAdjacentHTML("beforeend", displayPet(pets[i]));
+                element.innerHTML += displayPet(pets[i]);
+            }
+        }
+        showAllPets();
+        adoptPet(pets[2]);
     </script>
 </body>
 </html>
