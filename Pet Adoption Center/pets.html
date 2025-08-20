@@ -12,12 +12,11 @@
 <body>
     <h1>Happy Paws Adoption Center</h1>
     <div id="pet-list"></div>
-    
     <script>
         // Your JavaScript code goes here
         let pets = [
             {name: "Garfield", type: "cat", age: 3, adopted: false},
-            {name: "Gary", type: "snail", age: 4, adopted: true},
+            {name: "Gary", type: "snail", age: 4, adopted: false},
             {name: "Rex", type: "dog", age: 2, adopted: false},
             {name: "Boris", type: "turtle", age: 6, adopted: false},
         ];
@@ -36,13 +35,24 @@
         }
         function showAllPets() {
             const element = document.querySelector("#pet-list");
+            element.innerHTML = "";
             for (let i = 0; i < pets.length; i++){
                 //element.insertAdjacentHTML("beforeend", displayPet(pets[i]));
                 element.innerHTML += displayPet(pets[i]);
+                if (!pets[i].adopted){
+                    element.innerHTML += `<button type="button" id="${i}">Adopt</button>`;
+                }
+            }
+            const btns = document.querySelectorAll("button");
+            for (const btn of btns) {
+                btn.addEventListener("click", whatButtonClicked);
             }
         }
         showAllPets();
-        adoptPet(pets[2]);
+        function whatButtonClicked(e){
+            pets[e.target.id].adopted = true;
+            showAllPets();
+        }
     </script>
 </body>
 </html>
