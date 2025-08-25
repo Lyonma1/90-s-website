@@ -17,10 +17,36 @@ async function getData() {
     }
 }
 function displayPokemonList (data){
+    const list = document.createElement('ul');
     for (const poke of data){
-        const div = document.createElement('div');
-        div.innerHTML = `<a href="${poke.url}">${poke.name}</a>`
-        document.body.appendChild(div);
+        const item = document.createElement("li");
+        item.innerText = poke.name;
+        item.addEventListener("click", () => {
+            onePokemon(poke.url)
+        });
+        list.appendChild(item);
     }
+    document.body.appendChild(list)
+}
+async function onePokemon(url) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      displayIndividual(data);
+    } catch (error) {
+      console.error(error.message);
+    }
+}
+
+const pokemonCard = document.createElement("div");
+document.body.appendChild(pokemonCard);
+
+function displayIndividual(pokemon){
+    pokemonCard.innerHTML = `<h2>${pokemon.name}</h2>
+    <img src="${pokemon.sprites.front_default}" alt="Pokemon front"></img>`;
 }
 getData();
