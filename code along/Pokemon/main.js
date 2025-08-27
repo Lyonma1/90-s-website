@@ -47,6 +47,6 @@ document.body.appendChild(pokemonCard);
 
 function displayIndividual(pokemon){
     pokemonCard.innerHTML = `<h2>${pokemon.name}</h2>
-    <img src="${pokemon.sprites.front_default}" alt="Pokemon front"></img>`;
+    <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}"></img>`;
 }
 getData();

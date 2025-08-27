@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Our superheroes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+      <header>
+
+      </header>
+
+      <section>
+
+      </section>
+
+      <script>
+        async function populate() {
+          const response = await fetch("https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json");
+          const superHeroes = await response.json();
+          populateHeader(superHeroes);
+          populateHeroes(superHeroes);
+        }
+
+        function populateHeader(obj) {
+          //.getElementsByTagName("header")
+          const header = document.querySelector("header");
+          const myH1 = document.createElement("h1");
+          myH1.textContent = obj.squadName;
+          header.appendChild(myH1);
+
+          const myPara = document.createElement("p");
+          myPara.textContent = `Hometown: ${obj.homeTown} // Formed: ${obj.formed}`;
+          header.appendChild(myPara);
+        }
+
+        function populateHeroes(obj) {
+          const section = document.querySelector("section");
+          const heroes = obj.members;
+
+          for (const hero of heroes) {
+            const myArticle = document.createElement("article");
+            const myList = document.createElement("ul");
+
+            const superPowers = hero.powers;
+            for (const power of superPowers) {
+              const listItem = document.createElement("li");
+              listItem.textContent = power;
+              myList.appendChild(listItem);
+            }
+
+            myArticle.innerHTML = `<h2>${hero.name}</h2><p>Secret identity: ${hero.secretIdentity}</p><p>Age: ${hero.age}</p><p>Superpowers:</p>`;
+            myArticle.appendChild(myList);
+            section.appendChild(myArticle);
+          }
+        }
+        populate();
+      </script>
+  </body>
+</html>
